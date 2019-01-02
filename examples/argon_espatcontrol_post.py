@@ -16,16 +16,16 @@ except ImportError:
 
 URL = "https://io.adafruit.com/api/v2/webhooks/feed/"+settings['aio_feed_webhook']+"?value="
 
-# for Particle Argon
+# Pinout for Particle Argon Board
 RX = board.ESP_TX
 TX = board.ESP_RX
+resetpin = DigitalInOut(board.ESP_WIFI_EN)
+rtspin = DigitalInOut(board.ESP_CTS)
 uart = busio.UART(TX, RX, timeout=0.1)
 
 esp_boot = DigitalInOut(board.ESP_BOOT_MODE)
 esp_boot.direction = Direction.OUTPUT
 esp_boot.value = True
-rtspin = DigitalInOut(board.ESP_CTS)
-resetpin = DigitalInOut(board.ESP_WIFI_EN)
 
 print("Post to a URL", URL)
 
