@@ -16,6 +16,7 @@ except ImportError:
 
 URL = "https://io.adafruit.com/api/v2/webhooks/feed/"+settings['aio_feed_webhook']+"?value="
 
+# for Particle Argon
 RX = board.ESP_TX
 TX = board.ESP_RX
 uart = busio.UART(TX, RX, timeout=0.1)
